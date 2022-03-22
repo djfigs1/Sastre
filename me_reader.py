@@ -40,7 +40,10 @@ class ResumeSubsection:
         return include_subsection
 
     def get_title(self) -> str:
-        return self.event_obj["Title"]
+        if "Title" in self.event_obj:
+            return self.event_obj["Title"]
+        else:
+            return self.key
 
     def get_subtitle(self) -> str | None:
         if "Subtitle" in self.event_obj:
@@ -90,6 +93,12 @@ class ResumeSection:
 
         return sections
 
+    def get_title(self):
+        if "Title" in self.section_obj:
+            return self.section_obj["Title"]
+        else:
+            return self.key
+
 # Represents the data contained within a Me file
 class MeFile:
     def __init__(self, path: str) -> None:
@@ -126,8 +135,8 @@ class MeFile:
         contact = " | ".join(contact_info)
         doc.append(Command("centerline", contact))
 
-        for sectionName,section in self.get_sections().items():
-            with doc.create(Section(sectionName)):
+        for sectionKey,section in self.get_sections().items():
+            with doc.create(Section(section.get_title())):
                 # Check for top-level description
                 desc = section.get_description()
                 if (type(desc) == list):
