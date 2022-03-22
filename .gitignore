@@ -154,5 +154,8 @@ cython_debug/
 # Generated PDFs
 *.pdf
 
+# YAML files
+*.yaml
+
 # VSCode
 .vscode/
