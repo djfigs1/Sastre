@@ -19,7 +19,7 @@ if __name__ == "__main__":
     parser.add_argument("-eC", "--exclude-contact", action="store", type=str, default="", help="exclude contact info from resume", dest="exclude_contact")
     parser.add_argument("-r", "--recipe-file", help="create resume from recipe file")
     parser.add_argument("-t", "--output-tex", action="store", dest="tex_path", default=None, help="outputs a .tex file")
-    parser.add_argument("-o", "--output-file", default="./pdf/resume", action="store", dest="pdf_path", help="outputs a .tex file")
+    parser.add_argument("-o", "--output-file", default="./resume", action="store", dest="pdf_path", help="outputs a .tex file")
 
     # Parse arguments
     args = parser.parse_args()
