@@ -3,6 +3,10 @@
 \LoadClass{article}
 \RequirePackage{titlesec}
 \RequirePackage{etoolbox}
+\RequirePackage{enumitem}
+
+% Define spacing in-between bullet points
+\setitemize{itemsep=0.5pt}
 
 \titleformat{\section}         % Customise the \section command
   {\Large\scshape\raggedright\bfseries} % Make the \section headers large (\Large),
@@ -12,7 +16,7 @@
   [\titlerule]                 % Inserts a horizontal line after the heading
 
 \titleformat{\subsection}
-  {\large\raggedright}
+  {\bfseries\large\raggedright}
   {}{0em}
   {}
 
