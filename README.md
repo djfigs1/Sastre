@@ -43,7 +43,7 @@ Sections:
 
       # This will create a subsection with the key "Example"
       Example:
-        # This define a custom title for the Example subsection.
+        # This defines a custom title for the Example subsection.
         Title: Example Company
 
         # You can also define a subtitle to define your position; it appears
