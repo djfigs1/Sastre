@@ -132,6 +132,8 @@ class MeFile:
                 desc = section.get_description()
                 if (type(desc) == list):
                     create_description(doc, desc)
+                elif (type(desc) == str):
+                    doc.append(desc)
 
                 # Check for subsections
                 subsections = section.get_subsections()
