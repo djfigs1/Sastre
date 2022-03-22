@@ -152,7 +152,10 @@ cython_debug/
 #.idea/
 
 # Generated PDFs
-pdf/
+*.pdf
+
+# YAML files
+*.yaml
 
 # VSCode
 .vscode/

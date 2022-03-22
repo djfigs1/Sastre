@@ -1,10 +1,3 @@
-# CV
-An automatic resume builder for me!
-
-## me.yaml format
-The `me.yaml` file contains all of your information and experiences that can be put in your resume. The file is structured as follows:
-
-```yaml
 # The Me section defines your name and all of your contact info.
 # The only required key in Me is your name with the Name key. You can decide
 # everything else you want to include with a custom key and its string value. 
@@ -43,7 +36,7 @@ Sections:
 
       # This will create a subsection with the key "Example"
       Example:
-        # This defines a custom title for the Example subsection.
+        # This define a custom title for the Example subsection.
         Title: Example Company
 
         # You can also define a subtitle to define your position; it appears
@@ -58,16 +51,3 @@ Sections:
         Description:
           - Worked very hard doing very hard things.
           - Worked in a large team of very many people.
-```
-
-You can generate this example resume using the command:
-```
-py generate.py -m demo.yaml -o demo.pdf
-```
-
-## generate.py
-
-You can view a list of arguments using the command:
-```
-py generate.py --help
-```
