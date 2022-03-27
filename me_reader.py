@@ -7,8 +7,9 @@ from recipe import ResumeRecipe
 
 # Represents subsections in a Me file
 class ResumeSubsection:
-    def __init__(self, key: str, event_obj: Dict[str, any]) -> None:
+    def __init__(self, key: str, section_key: str, event_obj: Dict[str, any]) -> None:
         self.key = key
+        self.section_key = section_key
         self.event_obj = event_obj
 
     def insert_in_doc(self, doc: Document) -> None:
@@ -28,14 +29,20 @@ class ResumeSubsection:
     def should_include(self, recipe: ResumeRecipe) -> bool:
         include_subsection = True
 
-        if self.key.lower() in recipe.exclude_items:
-            include_subsection = False
+        # Check inclusions
+        if (self.section_key in recipe.include_items):
+            items = recipe.include_items[self.section_key]
+            if not self.key in items:
+                include_subsection = False
         else:
-            for tag in self.get_tags():
-                tag = tag.lower()
-                if tag in recipe.exclude_tags and not tag in recipe.include_tags:
-                    include_subsection = False
-                    break
+            if self.key.lower() in recipe.exclude_items:
+                include_subsection = False
+            else:
+                for tag in self.get_tags():
+                    tag = tag.lower()
+                    if tag in recipe.exclude_tags and not tag in recipe.include_tags:
+                        include_subsection = False
+                        break
 
         return include_subsection
 
@@ -89,7 +96,7 @@ class ResumeSection:
         if "Subsections" in self.section_obj:
             sections = {}
             for key, section in self.section_obj["Subsections"].items():
-                sections[key] = ResumeSubsection(key, section)
+                sections[key] = ResumeSubsection(key, self.key, section)
 
         return sections
 

@@ -13,7 +13,8 @@ if __name__ == "__main__":
     # Create and configure argparser
     parser = argparse.ArgumentParser(description="A utility that creates my resume.")
     parser.add_argument("-m", "--me-file", help="path to me file", dest="me_file", action="store", default="./me.yaml")
-    parser.add_argument("-i", "--include-tags", help="include tags in resume", dest="include_tags")
+    parser.add_argument("-iT", "--include-tags", help="include tags in resume", dest="include_tags")
+    parser.add_argument("-i", "--include-items", action="store", type=str, help="include items in resume", dest="include_items")
     parser.add_argument("-eI", "--exclude-items", action="store", type=str, default="", help="exclude tags from resume", dest="exclude_items")
     parser.add_argument("-eT", "--exclude-tags", action="store", type=str, default="", help="exclude tags from resume", dest="exclude_tags")
     parser.add_argument("-eC", "--exclude-contact", action="store", type=str, default="", help="exclude contact info from resume", dest="exclude_contact")
@@ -33,6 +34,16 @@ if __name__ == "__main__":
 
     # Create recipe
     recipe = ResumeRecipe()
+
+    # Extract include items
+    # format SectionKey:A,B,C;OtherSectionKey:D,E,F;...
+    if (len(args.include_items) > 0):
+        include_sections = args.include_items.split(";")
+        for section in include_sections:
+            sectionKey, items = section.split(":")
+            items = items.split(",")
+            recipe.include_items[sectionKey] = items
+
     recipe.exclude_items = args.exclude_items.lower().split(",")
     recipe.exclude_tags = args.exclude_tags.lower().split(",")
     recipe.exclude_contact = args.exclude_contact.lower().split(",")
