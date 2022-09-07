@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # Extract include items
     # format SectionKey:A,B,C;OtherSectionKey:D,E,F;...
-    if (len(args.include_items) > 0):
+    if (args.include_items is not None and len(args.include_items) > 0):
         include_sections = args.include_items.split(";")
         for section in include_sections:
             sectionKey, items = section.split(":")

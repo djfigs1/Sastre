@@ -64,6 +64,8 @@ class ResumeSubsection:
             end = self.event_obj["End"]
             dateRange = f"{start} - {end}"
             return dateRange
+        elif "Date" in self.event_obj:
+            return self.event_obj["Date"]
 
         return None
 
@@ -131,7 +133,7 @@ class MeFile:
         return sections
 
     def create_document(self, recipe: ResumeRecipe) -> Document:
-        doc = Document(documentclass="cv", geometry_options={"margin": "0.5in"})
+        doc = Document(documentclass="cv", geometry_options={"margin": "0.3in"})
 
         # Add name/contact information
         doc.append(Command("name", self.get_name()))

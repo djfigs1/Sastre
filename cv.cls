@@ -6,17 +6,23 @@
 \RequirePackage{enumitem}
 
 % Define spacing in-between bullet points
-\setitemize{itemsep=0.5pt}
+\setitemize{itemsep=-4.0pt}
+
+% Set title spacing
+\titlespacing*{\section}
+{0pt}{1pt}{3pt}
+\titlespacing*{\subsection}
+{0pt}{1pt}{3pt}
 
 \titleformat{\section}         % Customise the \section command
-  {\Large\scshape\raggedright\bfseries} % Make the \section headers large (\Large),
+  {\scshape\raggedright\bfseries} % Make the \section headers large (\Large),
                                % small capitals (\scshape) and left aligned (\raggedright)
   {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
   {}                           % Can be used to insert code before the heading
   [\titlerule]                 % Inserts a horizontal line after the heading
 
 \titleformat{\subsection}
-  {\bfseries\large\raggedright}
+  {\bfseries\raggedright}
   {}{0em}
   {}
 
