@@ -111,7 +111,7 @@ class ResumeSection:
 # Represents the data contained within a Me file
 class MeFile:
     def __init__(self, path: str) -> None:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf8") as f:
             self.doc = yaml.safe_load(f)
 
     def get_name(self) -> str:
