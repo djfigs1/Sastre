@@ -1,5 +1,5 @@
-from pylatex import Document, Section, Command, Itemize
-from typing import List
+from pylatex import Section, Command
+
 
 class DatedSubsection(Section):
     def __init__(self, title, date, subtitle=None, numbering=None, *, label=True, **kwargs):
@@ -34,12 +34,3 @@ class DatedSubsection(Section):
         string += '%\n' + self.dumps_content()
 
         return string
-
-def create_description(doc: Document, bullets: List[str]):
-    """
-    Creates a series of LaTeX bullet points given a list of strings.
-    """
-
-    with doc.create(Itemize()) as itemize:
-        for bullet in bullets:
-            itemize.add_item(bullet)

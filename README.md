@@ -22,7 +22,7 @@ Sections:
   Education: 
     # The description is the content within the section / subsection.
     # Here, the description is a simple paragraph at the start of the section
-    Description: Trust me, I have a lot of educational experiences! 
+    Description: Trust builder, I have a lot of educational experiences! 
 
   Likes & Hobbies:
     # Here, the description is a list of items (as indicated by the '-' before 
