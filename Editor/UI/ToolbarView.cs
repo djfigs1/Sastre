@@ -1,4 +1,5 @@
-﻿using UnityEngine.UIElements;
+﻿using Tactile.UI.UIToolkitExtensions.Extensions;
+using UnityEngine.UIElements;
 
 namespace Sastre.Editor.UI
 {
@@ -7,7 +8,8 @@ namespace Sastre.Editor.UI
         public readonly ActionBar Toolbar;
         public ToolbarView(VisualElement content)
         {
-            style.flexGrow = 1f;
+            this.FlexGrow(1);
+            
             Toolbar = new ActionBar();
             Add(Toolbar);
             Add(content);

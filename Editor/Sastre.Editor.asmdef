@@ -1,7 +1,9 @@
 {
     "name": "Editor",
     "rootNamespace": "Sastre",
-    "references": [],
+    "references": [
+        "GUID:eb785b562628f3343926580e36513bb6"
+    ],
     "includePlatforms": [
         "Editor"
     ],

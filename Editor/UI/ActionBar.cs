@@ -1,4 +1,5 @@
-﻿using UnityEngine.UIElements;
+﻿using Tactile.UI.UIToolkitExtensions.Extensions;
+using UnityEngine.UIElements;
 
 namespace Sastre.Editor.UI
 {
@@ -6,14 +7,11 @@ namespace Sastre.Editor.UI
     {
         public ActionBar()
         {
-            style.paddingBottom = 8f;
-            style.paddingTop = 8f;
-            style.paddingLeft = 8f;
-            style.paddingRight = 8f;
-            style.alignItems = Align.Stretch;
-            style.justifyContent = Justify.FlexEnd;
-            style.minHeight = 36f;
-            style.flexDirection = FlexDirection.Row;
+            this.Padding(8)
+                .AlignItems(Align.Stretch)
+                .JustifyContent(Justify.FlexEnd)
+                .MinHeight(36)
+                .FlexDirection(FlexDirection.Row);
         }
 
         public void AddRightItem(VisualElement actionElement)

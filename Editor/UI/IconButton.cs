@@ -1,4 +1,5 @@
 ﻿using Sastre.Editor.Icons;
+using Tactile.UI.UIToolkitExtensions.Extensions;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,15 +9,12 @@ namespace Sastre.Editor.UI
     {
         public IconButton(string iconName)
         {
-            style.width = 25;
-            style.height = 25;
-            style.backgroundImage = new StyleBackground(IconTextures.GetIconTexture(iconName));
-            style.unityBackgroundImageTintColor = SastreTheme.AccentColor;
-            style.backgroundColor = Color.clear;
-            style.borderBottomColor = Color.clear;
-            style.borderTopColor = Color.clear;
-            style.borderLeftColor = Color.clear;
-            style.borderRightColor = Color.clear;
+            this.Width(25)
+                .Height(25)
+                .BackgroundImage(new StyleBackground(IconTextures.GetIconTexture(iconName)))
+                .UnityBackgroundImageTintColor(SastreTheme.AccentColor)
+                .BackgroundColor(Color.clear)
+                .BorderColor(Color.clear);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
+using Tactile.UI.UIToolkitExtensions.Extensions;
 
 namespace Sastre.Editor.UI
 {
@@ -24,42 +25,26 @@ namespace Sastre.Editor.UI
 
         private readonly Image _image;
         private readonly Label _label;
-        
+
         public ItemRow()
         {
-            style.flexDirection = FlexDirection.Row;
-            style.alignItems = Align.Center;
-            _image = new Image
-            {
-                style =
-                {
-                    width = 25,
-                    height = 25,
-                    marginRight = 4,
-                },
-                tintColor = SastreTheme.AccentColor
-            };
+            this.FlexDirection(FlexDirection.Row)
+                .AlignItems(Align.Center)
+                .Padding(8)
+                .BorderRadius(8);
             
-            _label = new Label
-            {
-                style =
-                {
-                    fontSize = 14,
-                    color = Color.white
-                }
-            };
-            
+            _image = new Image()
+                .Width(25)
+                .Height(25)
+                .MarginRight(4)
+                .TintColor(SastreTheme.AccentColor);
+
+            _label = new Label()
+                .FontSize(14)
+                .Color(Color.white);
+
             Add(_image);
             Add(_label);
-
-            style.paddingBottom = 8f;
-            style.paddingTop = 8f;
-            style.paddingLeft = 8f;
-            style.paddingRight = 8f;
-            style.borderBottomLeftRadius = 8f;
-            style.borderTopLeftRadius = 8f;
-            style.borderTopRightRadius = 8f;
-            style.borderBottomRightRadius = 8f;
         }
     }
 }
